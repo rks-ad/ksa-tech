@@ -22,7 +22,7 @@ export function Footer() {
                 <Mail className="w-4 h-4" /> info@ksatech.in
               </a>
               <div className="flex items-center gap-2 text-sm text-gray-400">
-                <Phone className="w-4 h-4" /> +1 (940) 644-4449 <span className="text-[10px] bg-ksa-border px-2 py-0.5 rounded text-gray-300">Signal App Only</span>
+                <Phone className="w-4 h-4" /> +1 (940) 644-4449 <span className="text-[10px] bg-ksa-border px-2 py-0.5 rounded text-gray-300">24x7 Support</span>
               </div>
             </div>
           </div>
