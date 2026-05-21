@@ -244,7 +244,7 @@ export function Contact() {
                   <div>
                     <div className="text-xs font-mono uppercase tracking-wider text-gray-500 mb-1">Call/Message Us</div>
                     <div className="text-lg group-hover:text-ksa-neon transition-colors">+1 (940) 644-4449</div>
-                    <div className="text-xs text-gray-400 mt-1">Available on Signal App Only</div>
+                    <div className="text-xs text-gray-400 mt-1">24x7 Support</div>
                   </div>
                 </div>
 
