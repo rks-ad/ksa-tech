@@ -10,41 +10,32 @@ export function Contact() {
     subject: '',
     message: ''
   });
-  const [otp, setOtp] = useState('');
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const handleRequestOtp = async (e: FormEvent) => {
+ const handleRequestOtp = async (e: FormEvent) => {
     e.preventDefault();
     setStatus('loading');
     setErrorMessage('');
-    
+
     try {
-      const res = await fetch('/api/contact/request-otp', {
+      const res = await fetch('/api/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
-      
+
       const data = await res.json();
-      
-      if (data.success) {
-        setStatus('idle');
-        setStep('otp');
+
+      if (res.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
         setStatus('error');
-        setErrorMessage(data.error || 'Failed to send OTP. Please try again.');
+        setErrorMessage(data.error || 'Failed to send message. Please try again.');
       }
     } catch (error) {
       setStatus('error');
       setErrorMessage('Network error occurred. Please check your connection.');
     }
   };
-
-  const handleVerifyOtp = async (e: FormEvent) => {
-    e.preventDefault();
-    setStatus('loading');
-    setErrorMessage('');
     
     try {
       const res = await fetch('/api/contact/verify-otp', {
